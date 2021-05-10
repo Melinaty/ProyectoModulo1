@@ -1,7 +1,7 @@
 <?php
     session_name("Usuario");
     session_start();
-    if(isset($_SESSION["Nombre"]))// si existe ya una sesión te redirige, si no te manda el form
+    if(isset($_SESSION["Usuario"]))// si existe ya una sesión te redirige, si no te manda el form
     {
         header("location:./Ingresa.php");
     }
@@ -16,7 +16,19 @@
             <title>Crear sesión</title>
         </head>
         <body>
-            <form action='./Ingresa.php' method='POST'>
+        <form action='./formulario.php' method='POST'>
+        <label><strong>Elige el tipo de cuenta</strong>
+            <input type='radio' name='Tipo' value='Alumno' required>Alumno
+            <input type='radio' name='Tipo' value='Profesor' required>Profesor
+        </label>
+            <button type='submit' name='envia'>Elegir</button>
+        </form>";
+
+        $tipo=(isset($_POST["Tipo"]) && $_POST["Tipo"]!="") ? $_POST["Tipo"]:"No especifico";
+
+        if(isset($_POST["Tipo"]))
+        {
+            echo"<form action='./Ingresa.php' method='POST'>
                 <fieldset style='width: 700px;'>
                     <legend>Crea tu cuenta</legend>
                     <label>Nombre:
@@ -26,17 +38,36 @@
                     <label>Apellido:
                         <input type='text' name='Apellido' required>
                     </label>
-                    <br><br>
-                    <label>Grupo:
+                    <br><br>";
+
+                if($tipo=="Alumno")
+                {
+                    echo "<label>Grupo:
                         <input type='number' name='Grupo' required>
+                        </label>
+                        <br><br>
+                        <label>Número de cuenta:
+                        <input type='number' name='num_cuenta' required>
+                        </label>
+                        <br><br>";
+                }
+                else
+                {
+                    echo "<label>RFC:
+                    <input type='number' name='num_cuenta' required>
                     </label>
-                    <br><br>
-                    <label>Fecha de nacimiento:
-                        <input type='date' name='Fecha' required>
+                    <br><br>";
+                }    
+                echo "<label>Fecha de nacimiento:
+                    <input type='date' name='Fecha' required>
                     </label>
                     <br><br>
                     <label>Correo electrónico:
                         <input type='email' name='Correo' required>
+                    </label>
+                    <br><br>
+                    <label>Usuario:
+                        <input type='text' name='Usuario' required>
                     </label>
                     <br><br>
                     <label>Contraseña:
@@ -48,6 +79,8 @@
             </form>
         </body>
         </html>";
+        }
+        
 
     }
 

@@ -1,7 +1,7 @@
 <?php
     session_name("Usuario");
     session_start();
-    if(isset($_SESSION['Nombre']))// si existe ya una sesión te redirige, si no te manda el form
+    if(isset($_SESSION['Usuario']))// si existe ya una sesión te redirige, si no te manda el form
     {
         header('location:./Ingresa.php');
     }
@@ -16,7 +16,7 @@
             <title>Biblioteca</title>
         </head>
         <body>
-            <form action='./biblioteca.php' method='POST'>
+            <form action='./Ingresa.php' method='POST'>
                 <fieldset style='width: 700px;'>
                     <legend>INICIO DE SESIÓN</legend>
                     <label>Usuario:
