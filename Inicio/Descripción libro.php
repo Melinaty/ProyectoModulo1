@@ -21,6 +21,10 @@
                                 <li>Editorial: DeBolisllo</li>
                                 <li>Autor: Ken Follet</li>
                             </ul>
+                            <form action="./detailbook.php" method="POST">
+                                <button type="submit" name="">Seleccionar libro</button>
+                            </form>
+                            <br>
                             <form action="./Descripción libro.php" method="POST">
                                 <button type="submit" name="">Marcar como favorito</button>
                             </form>

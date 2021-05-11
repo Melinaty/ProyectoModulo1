@@ -1,5 +1,4 @@
 <?php
-    session_name("Usuario");
     session_start();
     if(isset($_SESSION['Usuario']))// si existe ya una sesión te redirige, si no te manda el form
     {
