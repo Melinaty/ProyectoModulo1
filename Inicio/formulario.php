@@ -44,7 +44,7 @@
                 if($tipo=="Alumno")
                 {
                     echo "<label>Número de cuenta:
-                        <input type='number' name='num_cuenta' maxlength='9' required>
+                        <input type='number' name='num_cuenta' required>
                         </label>
                         <br><br>";
                 }
