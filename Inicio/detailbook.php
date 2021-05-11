@@ -20,7 +20,7 @@
                                 <li>Editorial: DeBolisllo</li>
                                 <li>Autor: Ken Follet</li>
                             </ul>
-                            <form action="./Descripción libro.php" method="POST">
+                            <form action="./detailbook.php" method="POST">
                                 <button type="submit" name="">Marcar como favorito</button>
                             </form>
                             <br>
