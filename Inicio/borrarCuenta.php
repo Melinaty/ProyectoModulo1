@@ -12,10 +12,13 @@
         $decision=$_POST["decision"];
         if($decision === "si")
         {
-            echo "<h1>SESION BORRADA CON EXITO</h1>";
+            echo "<h1>SESIÓN BORRADA CON EXITO</h1>";
             session_unset();
             session_destroy();
             echo "<a href='index.html'></a>";
+            echo '<form action="./Cerrar.php" method="POST">
+                <button type=submit name=Cerrar value=Cerrar>Regresar</button>
+            </form>';
         }
         elseif($desicion === "no")
         {

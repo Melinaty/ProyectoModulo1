@@ -14,10 +14,14 @@
             <button type="submit">Buscar</button>
         </form>
     </fieldset>
-    <form action="./Buscador.html" method="POST">
+    <form action="./Buscador.php" method="POST">
         <label for="Buscador"> Buscador <input type="text" name="Buscador" id="Buscador" ></label> <br><br>
         <button type="submit">Buscar</button>
         <a href="./datosUsuario.php">Datos del usuario</a>
+    </form>
+    <br><br>
+    <form action='./Cerrar.php' method='POST'>
+    <button type='submit' name='Cerrar' value='c'>Cerrar sesión</button>
     </form>
 </body>
 </html>

@@ -3,7 +3,7 @@
     session_start();
     if(isset($_SESSION["Usuario"]))// si existe ya una sesión te redirige, si no te manda el form
     {
-        header("location:./Ingresa.php");
+        header("location:./Buscador.php");
     }
     else
     {
@@ -29,7 +29,7 @@
 
         if(isset($_POST["Tipo"]))
         {
-            echo"<form action='./Ingresa.php' method='POST'>
+            echo"<form action='./datosUsuario.php' method='POST'>
                 <fieldset style='width: 700px;'>
                     <legend>Crea tu cuenta</legend>
                     <label>Nombre:
