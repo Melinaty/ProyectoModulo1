@@ -12,7 +12,7 @@
         <table border="1" cellpadding=25>
             <tbody>
                 <tr>';
-                    for ($i=0; $i<3 ; $i++) {                     
+                    for ($i=0; $i<1 ; $i++) {                     
                         echo '<td>
                             <img src="./Hombre san Petesburgo.jpg" alt="Hombre San Petesburgo" style="width: 400px;">
                             <hr><hr>
