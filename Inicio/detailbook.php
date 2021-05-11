@@ -13,7 +13,7 @@
             <tbody>
                 <tr>';      //linea 31 manda el id del libro cambiar cuando incluya sql            
                         echo '<td>
-                            <img src="./Hombre san Petesburgo.jpg" alt="Hombre San Petesburgo" style="width: 400px;">
+                            <img src="../statics/Hombre san Petesburgo.jpg" alt="Hombre San Petesburgo" style="width: 400px;">
                             <hr><hr>
                             <ul>
                                 <li>Nombre: El hombre de San Petesburgo</li>
