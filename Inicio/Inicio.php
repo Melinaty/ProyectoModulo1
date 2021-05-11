@@ -16,7 +16,7 @@
             <title>Biblioteca</title>
         </head>
         <body>
-            <form action='./biblioteca.php' method='POST'>
+            <form action='./Buscador.html' method='POST'>
                 <fieldset style='width: 700px;'>
                     <legend>INICIO DE SESIÓN</legend>
                     <label>Usuario:
