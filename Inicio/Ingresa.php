@@ -1,5 +1,5 @@
 <?php
-    session_name("Usuario");
+    //session_name("Usuario");
     session_start();
 
     if(isset($_POST["Nombre"]) || isset($_SESSION["Nombre"])) //si existe una sesión o ya enviaron el formulario
