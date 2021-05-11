@@ -1,11 +1,7 @@
 <?php
-<<<<<<< HEAD
     session_name("Usuario");
     session_start();
     if(isset($_SESSION["Usuario"]))// si existe ya una sesión te redirige, si no te manda el form
-=======
-    if(isset($_SESSION["Nombre"]))// si existe ya una sesión te redirige, si no te manda el form
->>>>>>> Luis
     {
         header("location:./Ingresa.php");
     }
