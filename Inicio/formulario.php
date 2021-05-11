@@ -19,8 +19,9 @@
         <form action='./formulario.php' method='POST'>
         <label><strong>Elige el tipo de cuenta</strong>
             <input type='radio' name='Tipo' value='Alumno' required>Alumno
-            <input type='radio' name='Tipo' value='Profesor' required>Profesor
+            <input type='radio' name='Tipo' value='Profesor' required>Profesor, Técnico, laboratoriasta, u otro.
         </label>
+        <br>
             <button type='submit' name='envia'>Elegir</button>
         </form>";
 
@@ -42,11 +43,7 @@
 
                 if($tipo=="Alumno")
                 {
-                    echo "<label>Grupo:
-                        <input type='number' name='Grupo' required>
-                        </label>
-                        <br><br>
-                        <label>Número de cuenta:
+                    echo "<label>Número de cuenta:
                         <input type='number' name='num_cuenta' required>
                         </label>
                         <br><br>";
