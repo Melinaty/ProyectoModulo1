@@ -10,7 +10,7 @@
     <?php
         session_name("Usuario");
         session_start();        
-        if(isset($_POST["Usuario"]) || isset($_SESSION["Usuario"])) //si existe una sesión o ya enviaron el formulario
+        if(isset($_POST["num_cuenta"]) || isset($_SESSION["num_cuenta"])) //si existe una sesión o ya enviaron el formulario
     {
         if(isset($_POST["Usuario"])){
             $usuario=(isset($_POST["Usuario"]) && $_POST["Usuario"]!="") ? $_POST["Usuario"]:"No especifico";

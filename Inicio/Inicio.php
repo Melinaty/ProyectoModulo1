@@ -17,11 +17,11 @@
         </head>
         <body>
         <p align='center'><img src='../statics/inicio.png' width='500' height='200' alt='soy una imagen'></p>
-            <form action='./datosUsuario.php' method='POST'>
+            <form action='./conexiones.php' method='POST'>
             <p align='center'><fieldset style='background-color:#F6CEF5;'>
                     <legend align='center'><strong>INICIO DE SESIÓN</strong></legend>
-                    <p align='center'><label>Usuario:
-                        <input type='text' name='Usuario' align='center' required>
+                    <p align='center'><label>RFC o número de cuenta:
+                        <input type='text' name='num_cuenta' align='center' required>
                     </label>
                     <br><br>
                     <label align='center'>Contraseña:

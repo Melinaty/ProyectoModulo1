@@ -29,7 +29,7 @@
 
         if(isset($_POST["Tipo"]))
         {
-            echo"<form action='./datosUsuario.php' method='POST'>
+            echo"<form action='./checaform.php' method='POST'>
                 <fieldset style='width: 700px;'>
                     <legend>Crea tu cuenta</legend>
                     <label>Nombre:
@@ -43,19 +43,17 @@
 
                 if($tipo=="Alumno")
                 {
-                    echo "<label>Número de cuenta:
-                        <input type='number' name='num_cuenta' required>
-                        </label>
-                        <br><br>";
+                    echo "<label>Número de cuenta(sin guion):";
                 }
                 else
                 {
-                    echo "<label>RFC:
-                    <input type='number' name='num_cuenta' required>
-                    </label>
-                    <br><br>";
-                }    
-                echo "<label>Fecha de nacimiento:
+                    echo "<label>RFC:";
+
+                }   
+                
+                echo "<input type='number' name='num_cuenta' required>
+                    </label><br><br> 
+                    <label>Fecha de nacimiento:
                     <input type='date' name='Fecha' required>
                     </label>
                     <br><br>
