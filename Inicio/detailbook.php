@@ -34,7 +34,7 @@
             while($row=mysqli_fetch_array($query1))
             {
                 echo $row['genero'];
-                echo ", "
+                echo ", ";
             }
             echo "</li>";
         echo "</ul>";
