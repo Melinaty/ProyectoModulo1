@@ -29,7 +29,7 @@
 
         if(isset($_POST["Tipo"]))
         {
-            echo"<form action='./datosUsuario.php' method='POST'>
+            echo"<form action='./pcargarUsuario.php' method='POST'>
                 <fieldset style='width: 700px;'>
                     <legend>Crea tu cuenta</legend>
                     <label>Nombre:
