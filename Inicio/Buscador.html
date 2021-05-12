@@ -9,7 +9,12 @@
 <body>
     <fieldset style="width:800px ; background-color: burlywood;">
     <h1>Biblioteca Noséque.</h1>
-        <form action="./Descripción libro.php" method="POST">
+        <form action="./resultadosBusqueda.php" method="POST">
+            Busqueda por categoria:<br>
+            GENERO:<input type="radio" name="filtro" value="G">
+            AÑO DE PUBLICACION:<input type="radio" name="filtro" value="Y">
+            EDITORIAL:<input type="radio" name="filtro" value="E">
+            AUTOR:<input type="radio" name="filtro" value="A">
             <label for="Buscador"> Buscador <input type="text" name="Buscador" id="Buscador" ></label> <br><br>
             <button type="submit">Buscar</button>
         </form>
