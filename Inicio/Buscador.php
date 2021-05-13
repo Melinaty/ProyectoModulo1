@@ -37,7 +37,8 @@
         </html>';
         if(isset($_SESSION["Tipo"]))//muestra funciones extra sólo al bibliotecario
         {
-            
+            echo "<a href='subidaLibros.php'>Subir libros</a>";
+            echo "<a href='interfazdatos.php>Modificar Datos del libro</a>";
             echo "<br><form action='./EliminarUsuarios.php' method='POST'>
             <button type='submit'>Eliminar usuarios</button>
             </form>";
