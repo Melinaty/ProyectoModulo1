@@ -1,7 +1,10 @@
 <?php
 
+    session_name("Usuario");
+    session_start();
+
     include("./Config.php");
-    if(isset($_POST["Usuario"]))//si recibió el formulario del usuario
+    if(isset($_POST["Usuario"]) || isset($_SESSION["Admin"]))//si recibió el formulario del usuario
     {
         function regresa($donde, $boton)//función para hacer botones
         {
@@ -48,8 +51,14 @@
                     $datos= mysqli_query($conexion, $indicacion);
 
                     echo "Tu usuario se registró con éxito";
-                    $_SESSION["Usuario"]=$ncuenta;
-                    regresa("./Inicio.php", "Continuar");
+                    if(isset($_SESSION["Admin"]))
+                    {
+                        regresa("./Buscador.php", "Continuar");
+                    }
+                    else
+                    {
+                        regresa("./Inicio.php", "Continuar");
+                    }
             
 
             }

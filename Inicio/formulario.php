@@ -1,7 +1,7 @@
 <?php
     session_name("Usuario");
     session_start();
-    if(isset($_SESSION["Usuario"]) && !isset($_POST["Agrega"]))// si existe ya una sesión te redirige, si no te manda el form
+    if(isset($_SESSION["Usuario"]) && !isset($_SESSION["Admin"]))// si existe ya una sesión te redirige, si no te manda el form
     {
         header("location:./Buscador.php");
     }
@@ -28,7 +28,7 @@
 
         $tipo=(isset($_POST["Tipo"]) && $_POST["Tipo"]!="") ? $_POST["Tipo"]:"No especifico";
 
-        if(isset($_POST["Tipo"]))
+        if(isset($_POST["Tipo"]) || isset($_SESSION["Admin"]))
         {
             echo"<form action='./checaform.php' method='POST'>
                 <fieldset style='width: 700px;'>
