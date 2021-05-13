@@ -19,7 +19,7 @@
             </form>
         </fieldset>";
 
-    if(isset($_POST["borrar"])) 
+    if(isset($_POST["borrar"]))//si mandó algo borra al usuario
     {
         $borrado=$_POST["borrar"];
         $indicacion="DELETE FROM usuariohaslibro WHERE rfc_num_cuenta='$borrado'";

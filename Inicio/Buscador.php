@@ -35,13 +35,19 @@
             </form>
         </body>
         </html>';
-        if(isset($_SESSION["Tipo"]))//muestra funciones extra sólo al bibliotecario
+        if(isset($_SESSION["Tipo"]) || isset($_SESSION["Admin"]))//muestra funciones extra sólo al bibliotecario
         {
             echo "<a href='subidaLibros.php'>Subir libros</a>";
             echo "<a href='interfazdatos.php>Modificar Datos del libro</a>";
             echo "<br><form action='./EliminarUsuarios.php' method='POST'>
             <button type='submit'>Eliminar usuarios</button>
             </form>";
+            if(isset($_SESSION["Admin"]))
+            {
+                echo "<br><form action='./formulario.php' method='POST'>
+                <button type='submit' name='agrega'>Agregar usuario</button>
+                </form>";
+            }
         }
     }
     else

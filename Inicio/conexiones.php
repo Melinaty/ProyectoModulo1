@@ -22,6 +22,10 @@
         {
             $_SESSION["Tipo"]=$datos;//asigna el tipo para que si es bibliotecario aparezcan más funciones
         }
+        if($datos["id_tipoUsuario"]=="3")
+        {
+            $_SESSION["Admin"]=$datos;
+        }
         $_SESSION["Usuario"]=$ncuenta;
         header("location:./Buscador.php");
        
