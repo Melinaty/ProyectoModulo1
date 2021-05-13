@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        function regresa($donde, $boton)
+        function regresa($donde, $boton)//para hacer botones
         {
             echo "<form action=$donde method='POST'>";
             echo "<button type='submit'>$boton</button>";
@@ -21,15 +21,15 @@
         include("./Config.php");
         $conexion = conecta();
         $usuario=$_SESSION["Usuario"];
-        $indicacion="DELETE FROM usuariohaslibro WHERE rfc_num_cuenta='$usuario'";
-        $res= mysqli_query($conexion, $indicacion);
+        $indicacion="DELETE FROM usuariohaslibro WHERE rfc_num_cuenta='$usuario'";//borra la FK
 
         $decision=$_POST["decision"];
         if($decision== "si")
         {
+            $res= mysqli_query($conexion, $indicacion);
             if($res)
             {
-                $indicacion2="DELETE FROM usuario WHERE rfc_num_cuenta='$usuario'";
+                $indicacion2="DELETE FROM usuario WHERE rfc_num_cuenta='$usuario'";//Borra la Pk
                 $res2= mysqli_query($conexion, $indicacion2);
                 if($res2)
                 {
@@ -52,7 +52,7 @@
                 regresa("./Buscador.php", "Regresar");
             }
          }
-        elseif($decision== "no")
+        elseif($decision== "no")//Si la decisión es no te regresa al buscador
         {
             header("location:./Buscador.php");
         }

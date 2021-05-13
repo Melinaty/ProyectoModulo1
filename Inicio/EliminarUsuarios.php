@@ -4,7 +4,7 @@
 
     include("./Config.php");
     $conexion = conecta();
-    
+    //Te pide la identificación del usuario
     echo"<fieldset style='width: 400px;''>
         <form action='./EliminarUsuarios.php' method='POST'>
             <legend><strong>Borrar usuario</strong></legend>
