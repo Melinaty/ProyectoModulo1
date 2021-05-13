@@ -1,4 +1,8 @@
 <?php
+
+    session_name("Usuario");
+    session_start();
+    
     include("./Config.php");
     if(isset($_POST["Usuario"]))
     {
@@ -47,6 +51,7 @@
                     $datos= mysqli_query($conexion, $indicacion);
 
                     echo "Tu usuario se registró con éxito";
+                    $_SESSION["Usuario"]=$ncuenta;
                     regresa("./Buscador.php", "Continuar");
             
 
