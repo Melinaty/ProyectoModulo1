@@ -1,8 +1,6 @@
 <?php
 
-    session_name("Usuario");
-    session_start();
-    
+
     include("./Config.php");
     if(isset($_POST["Usuario"]))
     {
@@ -30,7 +28,7 @@
         if (($correo2[1]=="comunidad.unam.mx" || $correo2[1]=="alumno.enp.unam.mx" && ($lon==9 && $tipo=="Alumno")) || 
         (($correo2[1]=="comunidad.unam.mx" || $correo2[1]=="enp.unam.mx") && ($tipo=="Profesor" || $tipo=="Bibliotecario")))
         {
-            $busca=$busca="SELECT * FROM usuario WHERE rfc_num_cuenta=$ncuenta";
+            $busca=$busca="SELECT * FROM usuario WHERE rfc_num_cuenta='$ncuenta'";
             $res= mysqli_query($conexion, $busca);
             $cont= mysqli_num_rows($res);
 
@@ -47,12 +45,12 @@
                     $usuario=$_POST["Usuario"];
                     $password=$_POST["Contraseña"];
 
-                    $indicacion="INSERT INTO usuario VALUES ($ncuenta, $num_tipo, '$usuario', '$correo','$password','$fecha', '$nombre', '$apellido')";
+                    $indicacion="INSERT INTO usuario VALUES ('$ncuenta', $num_tipo, '$usuario', '$correo','$password','$fecha', '$nombre', '$apellido')";
                     $datos= mysqli_query($conexion, $indicacion);
 
                     echo "Tu usuario se registró con éxito";
                     $_SESSION["Usuario"]=$ncuenta;
-                    regresa("./Buscador.php", "Continuar");
+                    regresa("./Inicio.php", "Continuar");
             
 
             }

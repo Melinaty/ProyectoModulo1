@@ -15,7 +15,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Biblioteca (nombrependiente)</h1>
+    <h1>Biblioteca ENP</h1>
     <hr>
     <a href="./formulario.php">Crear cuenta</a>
     |
