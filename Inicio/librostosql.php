@@ -149,5 +149,3 @@
             echo "<h1>No subio un archivo pdf<h1>";
         }
     ?>
-</body>
-</html>

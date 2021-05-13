@@ -1,10 +1,9 @@
 <?php
 
-
     include("./Config.php");
-    if(isset($_POST["Usuario"]))
+    if(isset($_POST["Usuario"]))//si recibió el formulario del usuario
     {
-        function regresa($donde, $boton)
+        function regresa($donde, $boton)//función para hacer botones
         {
             echo "<form action=$donde method='POST'>";
             echo "<button type='submit'>$boton</button>";
@@ -24,7 +23,7 @@
             $num_tipo=1;
         else
             $num_tipo=2;
-
+        //checa que haya ingresado bien todos los datos 
         if (($correo2[1]=="comunidad.unam.mx" || $correo2[1]=="alumno.enp.unam.mx" && ($lon==9 && $tipo=="Alumno")) || 
         (($correo2[1]=="comunidad.unam.mx" || $correo2[1]=="enp.unam.mx") && ($tipo=="Profesor" || $tipo=="Bibliotecario")))
         {
@@ -69,7 +68,7 @@
             regresa("./formulario.php", "Regresar");   
         }
     }
-    else
+    else//si no mandaron nada no pueden entrar a la pg
     {
         header("location:./formulario.php");
     }

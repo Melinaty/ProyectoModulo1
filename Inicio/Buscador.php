@@ -35,7 +35,7 @@
             </form>
         </body>
         </html>';
-        if(isset($_SESSION["Tipo"]))
+        if(isset($_SESSION["Tipo"]))//muestra funciones extra sólo al bibliotecario
         {
             
             echo "<br><form action='./EliminarUsuarios.php' method='POST'>
