@@ -57,7 +57,7 @@
                 while($row=mysqli_fetch_array($query))
                 {
                     echo "<td>";
-                        echo "<img src='$row[linkImagen]'>";
+                        echo "<img src='$row[linkImagen]' width='300' height='200'>";
                         echo "<br>";
                         echo "nombre: $row[titulo]";
                         echo "<br>";
