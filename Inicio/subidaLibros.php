@@ -9,14 +9,13 @@
 <body>
     <?php
         include("config.php");
-        /*$cuenta = $_SESSION["cuenta"];//rfc o numero de cuenta
+        $usuario = $_SESSION["usuario"];//rfc o numero de cuenta
         $conexion = connect();
         $peticion = "SELECT id_tipoUsuario FROM usuario
-                    WHERE rfc_num_cuenta = $cuenta";
+                    WHERE rfc_num_cuenta = '$usuario'";
         $query = mysqli_query($conexion,$peticion);
-        $tipodeUsuario = mysqli_fetch_array($query);*/
-        $tipodeUsuario = 2;
-        if($tipodeUsuario != 1)//es arreglo
+        $tipodeUsuario = mysqli_fetch_array($query);
+        if($tipodeUsuario != 1)
         {
             echo "<form method='POST' action='./librostosql.php' enctype='multipart/form-data'>";
             echo "<fieldset>";
