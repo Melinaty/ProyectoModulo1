@@ -1,7 +1,5 @@
 <?php
 
-    session_name("Usuario");
-    session_start();
 
     include("./Config.php");
     if(isset($_POST["Usuario"]))

@@ -21,7 +21,7 @@
         include("./Config.php");
         $conexion = conecta();
         $usuario=$_SESSION["Usuario"];
-        $indicacion="DELETE FROM usuariohaslibro WHERE rfc_num_cuenta=$usuario";
+        $indicacion="DELETE FROM usuariohaslibro WHERE rfc_num_cuenta='$usuario'";
         $res= mysqli_query($conexion, $indicacion);
 
         $decision=$_POST["decision"];
@@ -29,7 +29,7 @@
         {
             if($res)
             {
-                $indicacion2="DELETE FROM usuario WHERE rfc_num_cuenta=$usuario";
+                $indicacion2="DELETE FROM usuario WHERE rfc_num_cuenta='$usuario'";
                 $res2= mysqli_query($conexion, $indicacion2);
                 if($res2)
                 {
