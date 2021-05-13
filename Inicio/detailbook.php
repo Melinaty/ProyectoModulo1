@@ -8,6 +8,7 @@
 </head>
 <body>
     <?php
+        //Inicia sesio. recibe datos y inicia conexion con la DB
         session_name("Usuario");
         session_start();
         include("config.php");
@@ -22,6 +23,7 @@
         $hoy = getdate(time());
         $año = $hoy["year"];
         $edad = $año-$fecha[0];
+        //checa que no sea menor de edad
         if($edad < 18)
         {
             $menor = 1;
@@ -37,6 +39,7 @@
         $warning = 0;
         if($menor == 1)
         {
+            //checa que si es menor no sea contenido sesnisble
             while($array = mysqli_fetch_array($query))
             {
                 if($id_libro == $array[0])
@@ -45,6 +48,7 @@
                 }
             }
         }
+        //si no hubo avisos entra
         if($warning == 0)
         {
             $peticion1 = "SELECT genero FROM librohasgenero
@@ -58,6 +62,7 @@
             $query2 = mysqli_query($conexion,$peticion2);
             $query1 = mysqli_query($conexion,$peticion1);
             $arreglo = mysqli_fetch_array($query2);
+            //depliega todo en forma de lista
             echo "<img src='$arreglo[linkImagen]'>";
             echo "<ul>";
                 echo "<li> Nombre del libro: $arreglo[titulo]</li>";
@@ -67,6 +72,7 @@
                 echo "<li> Editorial: $arreglo[editorial]</li>";
                 echo "<li> Descripcion: $arreglo[descripcion]</li>";
                 echo "<li> Generos:";
+                //despliega todos los generos
                 while($row=mysqli_fetch_array($query1))
                 {
                     echo $row['genero'];
@@ -84,6 +90,7 @@
                 echo "</li>";
             echo "</ul>";
         }
+        //si hubo un warning no lo deja ver el contenido
         else
         {
             echo "<h1>Contendio inapropiado para menores<h1>";

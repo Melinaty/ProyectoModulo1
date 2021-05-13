@@ -8,8 +8,9 @@
 </head>
 <body>
     <?php
+        //pide los datos del reporte
         $id_libro=$_POST["id_libro"];
-        echo "<form>";
+        echo "<form method='POST' action='reportetosql.php'>";
             echo "<fieldset>";
                 echo "<legend>Reporte de contendio </legend>";
                 echo "¿Cual es el problema con este contenido?";

@@ -7,13 +7,14 @@
     <title>Document</title>
 </head>
 <body>
+    <!--un formulario para saber que datos va a editar-->
     <form method="POST" action="ediciondedatos.php">
         Nombre del libro a editar:<input type="text" name="nombre">
         <br>
         ¿Qué dato desea edita?:
         <br>
-        Genero<input type="radio" name="dato" value="G">
-        Autor<input type="radio" name="dato" value="A">
+        Genero:<input type="radio" name="dato" value="G">
+        Autor:<input type="radio" name="dato" value="A">
         Editorial<input type="radio" name="dato" value="E">
         Año: <input type="radio" name="dato" value="Y">
         <br>
