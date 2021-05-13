@@ -9,8 +9,10 @@
 <body>
     <?php
         //inicia la conexion
+        session_name("Usuario");
+        session_start();
         include("config.php");
-        $usuario = $_SESSION["usuario"];//rfc o numero de cuenta
+        $usuario = $_SESSION["Usuario"];//rfc o numero de cuenta
         $conexion = conecta();
         //pide el tipo de usaurio del usuario 
         $peticion = "SELECT id_tipoUsuario FROM usuario
