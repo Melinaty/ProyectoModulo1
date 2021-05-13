@@ -9,14 +9,16 @@
 <body>
     <?php
         include("config.php");
-
-        $conexion = connect();
+    //inicia conexion
+        $conexion = conecta();
+        //recibe todos los datos del libro a subir
         $titulo = $_POST["titulo"];
         $autor = $_POST["autor"];
         $editorial = $_POST["editorial"];
         $año = $_POST["year"];
         $descripcion = $_POST["descripcion"];
         $generos = $_POST["generos"];
+        //verifica si mando foto o no
         if($_FILES["foto"]["name"] != "")
         {
             $imagen = $_FILES["foto"];
@@ -30,8 +32,10 @@
 
         //arcivos
         $arrgelopdf = explode("/",$pdf["type"]);
+        //checa que si sea pdf
         if($arrgelopdf[1] == "pdf")
         {
+            //hace diferentes peticiones para empezar a subir los datos
             $peticion1 = "INSERT INTO libro (titulo,descripcion,año)
                         VALUES ('$titulo','$descripcion',$año)";
             $peticion2 = "INSERT INTO autor (autor)
@@ -46,6 +50,7 @@
             $querry = mysqli_query($conexion,$peticion4);
             $tamaño = mysqli_fetch_array($querry);
             $nombrearch=explode(".",$_FILES["pdf"]["name"]);
+            //manda el pdf a un statics de libros
             $ruta = "./statics/libros/libro".$tamaño["id_libro"].".".$nombrearch[1];
             //cambia el nombre
             rename($_FILES["pdf"]["tmp_name"], $ruta);
@@ -53,7 +58,6 @@
                          WHERE autor LIKE '$autor'";
             $querry = mysqli_query($conexion,$peticion);
             $id = mysqli_fetch_array($querry);
-            //var_dump($id);
             $peticion = "UPDATE libro SET id_autor = $id[0]
                         WHERE titulo ='$titulo'";
             $querry = mysqli_query($conexion, $peticion);
@@ -61,15 +65,14 @@
                         WHERE editorial LIKE '$editorial'";
             $querry = mysqli_query($conexion, $peticion);
             $id = mysqli_fetch_array($querry);
-            //var_dump($id);
             $peticion = "UPDATE libro SET id_editorial = $id[0]
                         WHERE titulo ='$titulo'";
             $querry = mysqli_query($conexion, $peticion);
-            //var_dump($querry);
             $peticion ="UPDATE libro SET rutaPDF = '$ruta'
                         WHERE titulo='$titulo'";
             $querry = mysqli_query($conexion, $peticion);
             //////////////////////////////////////////////////////
+            //empieza haciendo agregando varios generos y libros a la tabla librohasgenero
             $encontro=strpos($generos, ",");
             if($encontro === false)
             {
@@ -88,6 +91,7 @@
                             VALUES ($id_libro[0], $id_genero[0])";
                 $querry = mysqli_query($conexion,$peticion);
             }
+            //si solo hay un genero entra aqui
             else
             {
                 $arregloGeneros = explode(",", $generos);
@@ -109,8 +113,10 @@
                     $querry = mysqli_query($conexion,$peticion);
                 }
             }
+            //checa si hay imagenes o no
             if($done != 1)
             {
+                //checa que la extension sea correcta
                 if($arrgeloImg[1] === "jpeg" || $arrgeloImg[1] === "jpg" || $arrgeloImg[1] === "png")
                 {
                     $nombrearch=explode(".",$_FILES["foto"]["name"]);
@@ -127,6 +133,7 @@
                     echo "Extension de imagen incorrecta";
                 }
             }
+            //si no agrega una imagen default
             else
             {
                 $ruta = "./statics/imagenes/default.png";
@@ -139,9 +146,6 @@
         }
         else
         {
-            $peticion5 = "INSERT INTO libro (linkImagen)
-                        VALUES ('./statics/imagenes/default.png')";
+            echo "<h1>No subio un archivo pdf<h1>";
         }
     ?>
-</body>
-</html>
