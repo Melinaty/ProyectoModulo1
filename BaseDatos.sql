@@ -205,7 +205,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES ('320198223',1,'alxa','320198223@alumno.enp.unam.mx','4444112','2004-02-29','Alexa','Flores Medero Campos'),('CUPU800825',3,'Admin','soyadmin@comunidad.unam.mx','s0yUn4dm1n','2004-12-02','Clara','Hernandez Perez');
+INSERT INTO `usuario` VALUES ('320198223',1,'alxa','320198223@alumno.enp.unam.mx','4444112','2004-02-29','Alexa','Flores Medero Campos'),('320199777',1,'gaby','320199777@alumno.enp.unam.mx','123456789','2005-02-16','Gabriela','Campos Junco '),('320833344',1,'james','320833344@alumno.enp.unam.mx','0987654321','2005-11-16','James','Flores Medero Navarr'),('320833345',1,'flor','320833345@alumno.enp.unam.mx','abcdefg','2001-06-13','Flor','Hernandez Pi'),('320833346',1,'nat','320833346@alumno.enp.unam.mx','fghijk','2007-03-01','Natalia','Juarez Falcon'),('CUPU800801',1,'octavio','CUPU800801@comunidad.unam.mx','opslkt','2000-02-20','Octavio','Jaramillo Gonzales'),('CUPU800825',3,'Admin','soyadmin@comunidad.unam.mx','s0yUn4dm1n','2004-12-02','Clara','Hernandez Perez'),('CUPU800826',1,'frida','CUPU800826@comunidad.unam.mx','klmn','2001-10-17','Frida','Vazquez del Valle'),('CUPU800921',2,'molly','CUPU800921@comunidad.unam.mx','asdfgh','2000-12-20','Molly','Perez Hernandez');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -244,4 +244,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-13  0:37:06
+-- Dump completed on 2021-05-13  0:58:43
