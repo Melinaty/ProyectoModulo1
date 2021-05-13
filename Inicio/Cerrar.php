@@ -5,6 +5,5 @@
   {
     session_unset();
     header("location:./Inicio.php");
-
   }
 ?>

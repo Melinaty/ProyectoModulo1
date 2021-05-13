@@ -30,6 +30,7 @@
             <br><br>
             <form action="./Cerrar.php" method="POST">
             <button type="submit" name="Cerrar" value="c">Cerrar sesión</button>
+            <a href="librosFav.php">Ver favoritos</a>
             </form>
         </body>
         </html>';

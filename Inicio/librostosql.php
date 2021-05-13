@@ -10,7 +10,7 @@
     <?php
         include("config.php");
 
-        $conexion = connect();
+        $conexion = conecta();
         $titulo = $_POST["titulo"];
         $autor = $_POST["autor"];
         $editorial = $_POST["editorial"];

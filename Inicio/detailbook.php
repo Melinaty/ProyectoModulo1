@@ -36,6 +36,10 @@
                 echo $row['genero'];
                 echo ", ";
             }
+            echo "<form method ='POST' action='librosfavtosql.php'>";
+                echo "<input type='hidden' name='id_libro' value='$arreglo[id_libro]'>";
+                echo "<button type='submit'>Añadir a favortios</button>";
+            echo "</form>";
             echo "</li>";
         echo "</ul>";
     ?>
