@@ -35,12 +35,27 @@
             </form>
         </body>
         </html>';
-        if(isset($_SESSION["Tipo"]))//muestra funciones extra sólo al bibliotecario
+        //var_dump($_SESSION);
+        if(isset($_SESSION["Tipo"]) || isset($_SESSION["Admin"]))//muestra funciones extra sólo al bibliotecario
         {
-            
+            echo "<h3>Privilegios de bibliotecario</h3>";
+            echo "<br>";
+            echo "<a href='subidaLibros.php'>Subir libros</a>";
+            echo "<br>";
+            echo "<a href='interfazdatos.php'>Modificar Datos del libro</a>";
+            echo "<br>";
             echo "<br><form action='./EliminarUsuarios.php' method='POST'>
             <button type='submit'>Eliminar usuarios</button>
             </form>";
+            if(isset($_SESSION["Admin"]))
+            {
+                echo "<h3>Privilegios de admin</h3>";
+                echo "<br><form action='./formulario.php' method='POST'>
+                <button type='submit' name='agrega'>Agregar usuario</button>
+                </form>";
+                echo "<br>";
+                echo "<a href='formulariomodusuario.php'>Modificar rango de los usuarios</a>";
+            }
         }
     }
     else

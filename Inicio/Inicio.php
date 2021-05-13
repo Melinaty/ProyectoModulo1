@@ -17,7 +17,7 @@
             <title>Biblioteca</title>
         </head>
         <body>
-        <p align='center'><img src='../statics/inicio.png' width='500' height='200' alt='soy una imagen'></p>
+        <p align='center'><img src='./statics/inicio.png' width='500' height='200' alt='soy una imagen'></p>
             <form action='./conexiones.php' method='POST'>
             <p align='center'><fieldset style='background-color:#F6CEF5;'>
                     <legend align='center'><strong>INICIO DE SESIÓN</strong></legend>

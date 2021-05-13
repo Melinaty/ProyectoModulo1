@@ -89,6 +89,7 @@
                 echo "</form>";
                 echo "</li>";
             echo "</ul>";
+            echo "<a download href='$arreglo[rutaPDF]'>descargar</a>";
         }
         //si hubo un warning no lo deja ver el contenido
         else
