@@ -1,16 +1,21 @@
 <?php
+
+    session_name("Usuario");
+    session_start();
     include("./Config.php");
     $conexion = conecta();
 
     $ncuenta=$_POST["num_cuenta"];
     $password=$_POST["Contraseña"];
 
-    $busca=$busca="SELECT contraseña FROM usuario WHERE rfc_num_cuenta=$ncuenta AND contraseña='$password'";
+    $busca="SELECT contraseña FROM usuario WHERE rfc_num_cuenta=$ncuenta AND contraseña='$password'";
     $res= mysqli_query($conexion, $busca);
     $cont= mysqli_num_rows($res);
 
     if($cont>0)//si hay registro
     {
+        $_SESSION["Usuario"]=$ncuenta;
+        echo $_SESSION["Usuario"];
         header("location:.\Buscador.php");
     }
     else// No hay registro
