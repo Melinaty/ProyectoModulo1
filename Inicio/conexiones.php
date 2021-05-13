@@ -7,16 +7,24 @@
 
     $ncuenta=$_POST["num_cuenta"];
     $password=$_POST["Contraseña"];
-
-    $busca="SELECT contraseña FROM usuario WHERE rfc_num_cuenta=$ncuenta AND contraseña='$password'";
+    //busca el tipo de usuario en la BD con respecto al número de cuenta o RFC
+    $busca="SELECT id_tipoUsuario FROM usuario WHERE rfc_num_cuenta='$ncuenta' AND contraseña='$password'";
     $res= mysqli_query($conexion, $busca);
     $cont= mysqli_num_rows($res);
 
+    while($row = mysqli_fetch_array($res))
+    {
+        $datos=$row;
+    }
     if($cont>0)//si hay registro
     {
+        if($datos["id_tipoUsuario"]=="2")
+        {
+            $_SESSION["Tipo"]=$datos;//asigna el tipo para que si es bibliotecario aparezcan más funciones
+        }
         $_SESSION["Usuario"]=$ncuenta;
-        echo $_SESSION["Usuario"];
-        header("location:.\Buscador.php");
+        header("location:./Buscador.php");
+       
     }
     else// No hay registro
     {

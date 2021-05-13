@@ -12,7 +12,7 @@
         session_name("Usuario");
         session_start();        
 
-        function regresa($donde, $boton)
+        function regresa($donde, $boton)//crea los botones
         {
             echo "<form action=$donde method='POST'>";
             echo "<button type='submit'>$boton</button>";
@@ -23,13 +23,14 @@
         {
             $conexion = conecta();
             $usuario=$_SESSION["Usuario"];
-            $busca="SELECT * FROM usuario WHERE rfc_num_cuenta='$usuario'";
+            $busca="SELECT * FROM usuario WHERE rfc_num_cuenta='$usuario'";//budca ese usuario y todos sus datos
             $res= mysqli_query($conexion, $busca);
             while($row = mysqli_fetch_array($res))
             {
                 $datos=$row;
             }
 
+            //tabla con los datos
             echo "<table border='1'>
             <thead>
                 <tr><strong><th colspan='2'>DATOS</strong></th><tr>
@@ -71,7 +72,7 @@
             <button type='submit' name='Cerrar' value='c'>Cerrar sesión</button>
             </form>";
         }
-        else
+        else//si ya hay una sesión te manda al inicio
         {
             header("location:./inicio.php");
         }

@@ -1,8 +1,9 @@
 <?php
+
     include("./Config.php");
-    if(isset($_POST["Usuario"]))
+    if(isset($_POST["Usuario"]))//si recibió el formulario del usuario
     {
-        function regresa($donde, $boton)
+        function regresa($donde, $boton)//función para hacer botones
         {
             echo "<form action=$donde method='POST'>";
             echo "<button type='submit'>$boton</button>";
@@ -22,11 +23,11 @@
             $num_tipo=1;
         else
             $num_tipo=2;
-
+        //checa que haya ingresado bien todos los datos 
         if (($correo2[1]=="comunidad.unam.mx" || $correo2[1]=="alumno.enp.unam.mx" && ($lon==9 && $tipo=="Alumno")) || 
         (($correo2[1]=="comunidad.unam.mx" || $correo2[1]=="enp.unam.mx") && ($tipo=="Profesor" || $tipo=="Bibliotecario")))
         {
-            $busca=$busca="SELECT * FROM usuario WHERE rfc_num_cuenta=$ncuenta";
+            $busca=$busca="SELECT * FROM usuario WHERE rfc_num_cuenta='$ncuenta'";
             $res= mysqli_query($conexion, $busca);
             $cont= mysqli_num_rows($res);
 
@@ -43,11 +44,12 @@
                     $usuario=$_POST["Usuario"];
                     $password=$_POST["Contraseña"];
 
-                    $indicacion="INSERT INTO usuario VALUES ($ncuenta, $num_tipo, '$usuario', '$correo','$password','$fecha', '$nombre', '$apellido')";
+                    $indicacion="INSERT INTO usuario VALUES ('$ncuenta', $num_tipo, '$usuario', '$correo','$password','$fecha', '$nombre', '$apellido')";
                     $datos= mysqli_query($conexion, $indicacion);
 
                     echo "Tu usuario se registró con éxito";
-                    regresa("./Buscador.php", "Continuar");
+                    $_SESSION["Usuario"]=$ncuenta;
+                    regresa("./Inicio.php", "Continuar");
             
 
             }
@@ -66,7 +68,7 @@
             regresa("./formulario.php", "Regresar");   
         }
     }
-    else
+    else//si no mandaron nada no pueden entrar a la pg
     {
         header("location:./formulario.php");
     }

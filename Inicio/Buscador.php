@@ -28,11 +28,20 @@
             </fieldset>
             <a href="./datosUsuario.php">Datos del usuario</a>
             <br><br>
+            <a href="librosFav.php">Ver favoritos</a>
+            <br><br>
             <form action="./Cerrar.php" method="POST">
             <button type="submit" name="Cerrar" value="c">Cerrar sesión</button>
             </form>
         </body>
         </html>';
+        if(isset($_SESSION["Tipo"]))//muestra funciones extra sólo al bibliotecario
+        {
+            
+            echo "<br><form action='./EliminarUsuarios.php' method='POST'>
+            <button type='submit'>Eliminar usuarios</button>
+            </form>";
+        }
     }
     else
     {
