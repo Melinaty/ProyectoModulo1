@@ -14,7 +14,7 @@ En tu consola de comandos, dirigete a la ubicacion C:\xampp\htdocs y en la carpe
 <br>
 <h3>Guía de configuración del proyecto:</h3>
 Antes de hacer los siguentes pasos, asegurate de prender los primeros 2 servidores (Apache y MYSQL), ahora que están prendidos dirigete a tu consola de comandos y también debes de mover de ubicación el archivo 'BaseDatosConAdmin.sql' que se encuentra en la carpeta que creaste a la dirección C:\xampp\mysql\bin (esto se realiza para que el archivo .sql pueda ser añadida a la base de datos), después dirigete a la ruta C:\mysql\bin e introduce el comando 'mysql -u root' y vas a entrar a la base de datos de MARIA DB, después debes ejecutar el siguiente comando 'CREATE DATABASE modulo1 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;' y crearás una base de datos de nombre 'modulo1'. Para añadir el respaldo a la base de datos debes de salirte de MARIA DB pulsando ctrl+c, te aparecerá un mensaje de 'bye', después corre el comando mysql -u root modulo1 > 'BaseDatosConAdmin.sql' y ya habrás añadido el respaldo a la base de datos. 
-Una vez completado, dirigete al siguiente link: 
+Una vez completado, dirigete al siguiente link: http://localhost/CursoWeb/Proyecto/ProyectoModulo1/Inicio/ y estará listo.
 
 
 <h3>Caracteristicas del proyecto:</h3> <br>
