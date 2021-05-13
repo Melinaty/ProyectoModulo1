@@ -15,7 +15,6 @@
     if($cont>0)//si hay registro
     {
         $_SESSION["Usuario"]=$ncuenta;
-        echo $_SESSION["Usuario"];
         header("location:.\Buscador.php");
     }
     else// No hay registro
