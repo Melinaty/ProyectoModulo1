@@ -4,7 +4,7 @@
     if(isset($_SESSION['Usuario']))// si existe ya una sesión te redirige, si no te manda el form
     {
         header('location:./Ingresa.php');
-}
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">

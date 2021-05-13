@@ -8,18 +8,20 @@
 </head>
 <body>
     <?php
+        //recive todos los datos y conecta con la base
         include("config.php");
         $conexion = conecta();
         $nombre = $_POST["nombre"];
         $dato = $_POST["dato"];
         $nw = $_POST["nw"];
-
+        //si se va a editar año entra aqui
         if($dato == 'Y')
         {
             $peticion = "UPDATE libro SET año=$nw
                         WHERE titulo LIKE '$nombre'";
             $query = mysqli_query($conexion,$peticion);
         }
+        //si se va a editar Autor o Editorial entra aqui
         if($dato == 'A' || $nw == 'E')
         {
             if($dato == "A")
@@ -43,6 +45,7 @@
             $query = mysqli_query($conexion,$peticion);
 
         }
+        //si se va a editar genero entra aqui
         if($dato == 'G')
         {
             $peticion = "INSERT INTO genero (genero)

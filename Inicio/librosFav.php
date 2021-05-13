@@ -13,6 +13,7 @@
         $usuario = $_SESSION["Usuario"];
         include("config.php");
         $conexion = conecta();
+        //checa todos los libros favoritos del usuario
         $peticion = "SELECT * FROM usuariohaslibro
                     INNER JOIN libro ON libro.id_libro = libro.id_libro
                     WHERE usuariohaslibro.rfc_num_cuenta = $usuario
@@ -21,6 +22,7 @@
         echo "<table>";
             echo "<tbody>";
                 echo "<tr>";
+                //despliega todos en una tabla
                 while($arreglo = mysqli_fetch_array($query))
                 {
                     echo "<td>";

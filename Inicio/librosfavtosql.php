@@ -1,4 +1,5 @@
 <?php
+    //recive datos y los integra a la tabla usuariohaslibro
     include("config.php");
 
     session_name("Usuario");

@@ -8,14 +8,17 @@
 </head>
 <body>
     <?php
+        //inicia la conexion
         include("config.php");
         $usuario = $_SESSION["usuario"];//rfc o numero de cuenta
         $conexion = conecta();
+        //pide el tipo de usaurio del usuario 
         $peticion = "SELECT id_tipoUsuario FROM usuario
                     WHERE rfc_num_cuenta = '$usuario'";
         $query = mysqli_query($conexion,$peticion);
         $tipodeUsuario = mysqli_fetch_array($query);
-        if($tipodeUsuario != 1)
+        //checa si puede subir archivos o no
+        if($tipodeUsuario[0] != 1)
         {
             echo "<form method='POST' action='./librostosql.php' enctype='multipart/form-data'>";
             echo "<fieldset>";

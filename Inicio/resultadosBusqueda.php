@@ -8,10 +8,11 @@
 </head>
 <body>
     <?php
+    //inicia conexion
         include("config.php");
         $filtro = $_POST["filtro"];
         $keyword = $_POST["Buscador"];
-
+        //checa que categoria quiere buscar
         $conexion=conecta();
         if($filtro == 'G')//G Y E A
         {
@@ -29,6 +30,7 @@
         {
             $busqueda = 'autor';
         }
+        //dependiendo de la categoria busca de diferentes formas
         if($filtro == 'G')
         {
             $peticion = "SELECT libro.id_libro, titulo, linkImagen FROM librohasgenero
@@ -47,6 +49,7 @@
             $peticion = "SELECT id_libro, titulo, linkImagen FROM libro
                         WHERE año = $keyword";
         }
+        //regresa la busqueda y la pone en una tabla
         $query = mysqli_query($conexion,$peticion);
         echo "<table border=1>";
             echo "<tbody>";
