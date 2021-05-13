@@ -30,11 +30,7 @@
 
         if(isset($_POST["Tipo"]))
         {
-<<<<<<< HEAD
-            echo"<form action='./pcargarUsuario.php' method='POST'>
-=======
             echo"<form action='./checaform.php' method='POST'>
->>>>>>> 53970ae7d37e445d8ec5bf0b014c16de1eb6b51d
                 <fieldset style='width: 700px;'>
                     <legend>Crea tu cuenta</legend>
                     <label>Nombre:

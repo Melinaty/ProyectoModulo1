@@ -1,39 +1,43 @@
-<?php
-    echo '<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Descripción del libro</title>
-    </head>
-    <body>
-        <h1>Tu resultado:</h1> 
-        <table border="1" cellpadding=25>
-            <tbody>
-                <tr>';      //linea 31 manda el id del libro cambiar cuando incluya sql            
-                        echo '<td>
-                            <img src="../statics/Hombre san Petesburgo.jpg" alt="Hombre San Petesburgo" style="width: 400px;">
-                            <hr><hr>
-                            <ul>
-                                <li>Nombre: El hombre de San Petesburgo</li>
-                                <li>Editorial: DeBolisllo</li>
-                                <li>Autor: Ken Follet</li>
-                            </ul>
-                            <form action="./detailbook.php" method="POST">
-                                <button type="submit" name="">Marcar como favorito</button>
-                            </form>
-                            <br>
-                            <a href="" name="Hola">Abrir en otra ventana</a><br><br>
-                            <a href="" name="Hola">Descargar el archivo</a>
-                            <form method="POST" action="reporte.php">
-                                <input type=hidden name="id_libro" value=0>
-                                <button type="submit">Reportar contenido</button>
-                            <form>
-                        </td>';
-                echo '</tr>
-            </tbody>
-        </table>
-    </body>
-    </html>';
-?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <?php
+        include("config.php");
+        $id_libro = $_POST["id_libro"];
+        $conexion=conecta();
+        $peticion1 = "SELECT genero FROM librohasgenero
+                    INNER JOIN libro ON libro.id_libro = librohasgenero.id_libro
+                    INNER JOIN genero ON genero.id_genero = librohasgenero.id_genero
+                    WHERE libro.id_libro = $id_libro";
+        $peticion2 = "SELECT * FROM libro
+                    INNER JOIN autor ON autor.id_autor = libro.id_autor
+                    INNER JOIN editorial ON editorial.id_editorial = libro.id_editorial
+                    WHERE id_libro = $id_libro";
+        $query2 = mysqli_query($conexion,$peticion2);
+        $query1 = mysqli_query($conexion,$peticion1);
+        $arreglo = mysqli_fetch_array($query2);
+        echo "<img src='$arreglo[linkImagen]'>";
+        echo "<ul>";
+            echo "<li> Nombre del libro: $arreglo[titulo]</li>";
+            echo "<li> id del libro: $arreglo[id_libro]</li>";
+            echo "<li> Autor: $arreglo[autor]</li>";
+            echo "<li> Año de publicación: $arreglo[año]</li>";
+            echo "<li> Editorial: $arreglo[editorial]</li>";
+            echo "<li> Descripcion: $arreglo[descripcion]</li>";
+            echo "<li> Generos:";
+            while($row=mysqli_fetch_array($query1))
+            {
+                echo $row['genero'];
+                echo ", ";
+            }
+            echo "</li>";
+        echo "</ul>";
+    ?>
+</body>
+</html>
