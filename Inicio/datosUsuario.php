@@ -8,49 +8,74 @@
 </head>
 <body>
     <?php
+        include("./Config.php");
         session_name("Usuario");
         session_start();        
-        if(isset($_POST["Usuario"]) || isset($_SESSION["Usuario"])) //si existe una sesión o ya enviaron el formulario
-    {
-        if(isset($_POST["Usuario"])){
-            $usuario=(isset($_POST["Usuario"]) && $_POST["Usuario"]!="") ? $_POST["Usuario"]:"No especifico";
-            $nombre=(isset($_POST["Nombre"]) && $_POST["Nombre"]!="") ? $_POST["Nombre"]:"No especifico";
-            $apellido=(isset($_POST["Apellido"]) && $_POST["Apellido"]!="") ? $_POST["Apellido"]:"No especifico";
-            $correo=(isset($_POST["Correo"]) && $_POST["Correo"]!="") ? $_POST["Correo"]:"No especifico";
-            $fecha=(isset($_POST["Fecha"]) && $_POST["Fecha"]!="") ? $_POST["Fecha"]:"No especifico";
 
-            $_SESSION["Usuario"]=$usuario;
-            $_SESSION["Nombre"]=$nombre;
-            $_SESSION["Apellido"]=$apellido;
-            $_SESSION["Correo"]=$correo;
-            $_SESSION["Fecha"]=$fecha;
-
-            
-            
-                
-
-        echo "Nombre: $nombre";
-        echo "<br>";
-        echo "Apellido: $apellido";
-        echo "<br>";
-        echo "Correo: $correo";
-        echo "<br>";
-        echo "Fecha de nacimiento: $fecha";
-        echo "<br>";
-        echo "Usuario: $usuario";
-        echo "<br>";
+        function regresa($donde, $boton)
+        {
+            echo "<form action=$donde method='POST'>";
+            echo "<button type='submit'>$boton</button>";
+            echo "</form>";
         }
-        echo "<form action='../verificacion.html' method='POST'>";
-            echo "<button type='submit'>Borrar cuenta</button>";
-        echo "</form>";
-        echo "<form action='./Cerrar.php' method='POST'>
-        <button type='submit' name='Cerrar' value='c'>Cerrar sesión</button>
-        </form>";
-    }
-    else
-    {
-        header("location:./inicio.php");
-    }
+
+        if(isset($_SESSION["Usuario"])) //si existe una sesión
+        {
+            $conexion = conecta();
+            $usuario=$_SESSION["Usuario"];
+            $busca="SELECT * FROM usuario WHERE rfc_num_cuenta='$usuario'";
+            $res= mysqli_query($conexion, $busca);
+            while($row = mysqli_fetch_array($res))
+            {
+                $datos=$row;
+            }
+
+            echo "<table border='1'>
+            <thead>
+                <tr><strong><th colspan='2'>DATOS</strong></th><tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td>Nombre:</td>
+                    <td>$datos[6]</td>
+                </tr>
+                <tr>
+                    <td>Apellido</td>
+                    <td>$datos[7]
+                </tr>
+                <tr>
+                    <td>RFC o número de cuenta:</td>
+                    <td>$datos[0]</td>
+                </tr>
+                <tr>
+                    <td>Usuario:</td>
+                    <td>$datos[2]</td>
+                </tr>
+                <tr>
+                    <td>Correo electrónico:</td>
+                    <td>$datos[3]</td>
+                </tr>
+                <tr> 
+                    <td>Fecha de nacimiento:</td>
+                    <td>$datos[5]</td>
+                </tr>
+            </tbody>
+            </table>";
+
+            regresa("../verificacion.html", "Borrar cuenta");
+            echo "<br><br>";
+            regresa("./Buscador.php", "Regresar");
+            echo "<br>";
+            echo "<form action='./Cerrar.php' method='POST'>
+            <button type='submit' name='Cerrar' value='c'>Cerrar sesión</button>
+            </form>";
+        }
+        else
+        {
+            header("location:./inicio.php");
+        }
+    
         
     ?>
 </body>

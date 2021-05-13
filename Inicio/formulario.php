@@ -5,7 +5,7 @@
     {
         header("location:./Buscador.php");
     }
-    else
+    else//llenar el formulario según el tipo de usuario
     {
         echo "<!DOCTYPE html>
         <html lang='en'>
@@ -19,7 +19,8 @@
         <form action='./formulario.php' method='POST'>
         <label><strong>Elige el tipo de cuenta</strong>
             <input type='radio' name='Tipo' value='Alumno' required>Alumno
-            <input type='radio' name='Tipo' value='Profesor' required>Profesor, Técnico, laboratoriasta, u otro.
+            <input type='radio' name='Tipo' value='Profesor' required>Profesor, Técnico, laboratoriasta.
+            <input type='radio' name='Tipo' value='Bibliotecario' required>Bibliotecario
         </label>
         <br>
             <button type='submit' name='envia'>Elegir</button>
@@ -29,7 +30,11 @@
 
         if(isset($_POST["Tipo"]))
         {
+<<<<<<< HEAD
             echo"<form action='./pcargarUsuario.php' method='POST'>
+=======
+            echo"<form action='./checaform.php' method='POST'>
+>>>>>>> 53970ae7d37e445d8ec5bf0b014c16de1eb6b51d
                 <fieldset style='width: 700px;'>
                     <legend>Crea tu cuenta</legend>
                     <label>Nombre:
@@ -43,23 +48,22 @@
 
                 if($tipo=="Alumno")
                 {
-                    echo "<label>Número de cuenta:
-                        <input type='number' name='num_cuenta' required>
-                        </label>
-                        <br><br>";
+                    echo "<label>Número de cuenta(sin guion):
+                    <input type='number' name='num_cuenta'  required>";
                 }
                 else
                 {
                     echo "<label>RFC:
-                    <input type='number' name='num_cuenta' required>
-                    </label>
-                    <br><br>";
-                }    
-                echo "<label>Fecha de nacimiento:
+                    <input type='text' name='num_cuenta' minlength='10' maxlength='10' required>";
+
+                }   
+                
+                echo "</label><br><br> 
+                    <label>Fecha de nacimiento:
                     <input type='date' name='Fecha' required>
                     </label>
                     <br><br>
-                    <label>Correo electrónico:
+                    <label>Correo institucional:
                         <input type='email' name='Correo' required>
                     </label>
                     <br><br>
@@ -73,6 +77,7 @@
                     <br><br>
                     <button type='submit' name='Crear'>Crear</button>
                 </fieldset>
+                <input type='hidden' name='tipo' value='".$tipo."'>
             </form>
         </body>
         </html>";
