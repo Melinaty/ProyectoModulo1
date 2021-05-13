@@ -28,12 +28,20 @@
             </fieldset>
             <a href="./datosUsuario.php">Datos del usuario</a>
             <br><br>
+            <a href="librosFav.php">Ver favoritos</a>
+            <br><br>
             <form action="./Cerrar.php" method="POST">
             <button type="submit" name="Cerrar" value="c">Cerrar sesión</button>
-            <a href="librosFav.php">Ver favoritos</a>
             </form>
         </body>
         </html>';
+        if(isset($_SESSION["Tipo"]))
+        {
+            
+            echo "<br><form action='./EliminarUsuarios.php' method='POST'>
+            <button type='submit'>Eliminar usuarios</button>
+            </form>";
+        }
     }
     else
     {
