@@ -16,6 +16,6 @@
     }
     else
     {
-        echo " algo salio mal";
+        echo "algo salio mal";
     }
 ?>
